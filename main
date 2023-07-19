@@ -1,0 +1,32 @@
+class TicTacToe:
+    def __init__(self):
+        # initialize an empty grid
+        self.grid = [[' ' for _ in range(3)] for _ in range(3)]
+
+    def draw_board(self):
+        # draw the current state of the board
+        for i in range(3):
+            print("+-------+-------+-------+")
+            for _ in range(3):
+                print("|       ", end="")
+            print("|")
+            for j in range(3):
+                print("|   {}   ".format(self.grid[i][j]), end="")
+            print("|")
+            for _ in range(3):
+                print("|       ", end="")
+            print("|")
+        print("+-------+-------+-------+")
+
+    def place_mark(self, mark, row, col):
+        # place a mark on the board; row and col are 0-indexed
+        if self.grid[row][col] == ' ':
+            self.grid[row][col] = mark
+        else:
+            print("The cell is already filled. Please choose a different cell.")
+
+# you can use the class like this:
+game = TicTacToe()
+game.place_mark('X', 0, 0)
+game.place_mark('O', 1, 1)
+game.draw_board()
